@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#080808">
+    <meta name="description" content="NextSpringsのWebサイト制作・リニューアル・保守に関するご相談窓口です。">
+    <meta name="robots" content="max-image-preview:large">
+    <title>お問い合わせ・ご相談｜NextSprings</title>
+    <link rel="icon" type="image/png" href="./assets/favicon.png" sizes="96x96">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./contact.css">
+    <link rel="stylesheet" href="./motion.css">
+    <script src="./contact.js" defer></script>
+  </head>
+  <body class="contact-page">
+    <a class="skip" href="#main">本文へ移動</a>
+
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="./index.html#top" aria-label="NextSprings トップへ">
+          <img
+            src="./assets/nextsprings-logo-f1.png"
+            alt="NextSprings"
+            width="185"
+            height="38"
+          >
+        </a>
+        <nav aria-label="メインナビゲーション">
+          <a class="nav-link" href="./index.html#pricing">料金プラン</a>
+          <a class="inquiry-home" href="./index.html#top">トップへ戻る</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="inquiry-main">
+      <div class="wrap">
+        <div class="inquiry-intro">
+          <span class="eyebrow red" lang="en">CONTACT</span>
+          <h1><span>まずはお話を</span><wbr><span>お聞かせください。</span></h1>
+          <p>事業のこと、今のお悩み、ご予算などを伺いながら、必要な内容を一緒に整理します。</p>
+          <p class="inquiry-free">ご相談・ご提案は無料です。</p>
+        </div>
+
+        <form id="inquiry-form" class="inquiry-form" method="post" aria-label="制作のご相談フォーム">
+          <!-- お問い合わせの種類 -->
+          <fieldset class="inquiry-group">
+            <legend>つくりたいもの <span class="inquiry-badge required">必須</span></legend>
+            <div class="inquiry-options">
+              <label class="inquiry-option">
+                <input type="radio" name="project" value="名刺代わりのサイト" required>
+                <span>名刺代わりのサイト<small>まずは1ページから</small></span>
+              </label>
+              <label class="inquiry-option">
+                <input type="radio" name="project" value="会社・お店のサイト">
+                <span>会社・お店のサイト<small>事業や店舗の情報をまとめたい</small></span>
+              </label>
+              <label class="inquiry-option">
+                <input type="radio" name="project" value="LP（ランディングページ）">
+                <span>LP（ランディングページ）<small>商品やサービスの紹介ページ</small></span>
+              </label>
+              <label class="inquiry-option">
+                <input type="radio" name="project" value="既存サイトのリニューアル">
+                <span>既存サイトのリニューアル<small>内容や見た目を見直したい</small></span>
+              </label>
+              <label class="inquiry-option">
+                <input type="radio" name="project" value="公開後の更新・保守">
+                <span>公開後の更新・保守</span>
+              </label>
+              <label class="inquiry-option">
+                <input type="radio" name="project" value="まだ決まっていない">
+                <span>まだ決まっていない</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <!-- 連絡先とご予算 -->
+          <div class="inquiry-field">
+            <label for="inquiry-name">お名前 <span class="inquiry-badge required">必須</span></label>
+            <input
+              id="inquiry-name"
+              name="customerName"
+              type="text"
+              autocomplete="name"
+              maxlength="100"
+              placeholder="山田 太郎"
+              required
+            >
+          </div>
+
+          <div class="inquiry-field">
+            <label for="inquiry-company">会社名・屋号 <span class="inquiry-badge">任意</span></label>
+            <input
+              id="inquiry-company"
+              name="company"
+              type="text"
+              autocomplete="organization"
+              maxlength="120"
+              placeholder="株式会社〇〇"
+            >
+          </div>
+
+          <div class="inquiry-field">
+            <label for="inquiry-reply">メールアドレス <span class="inquiry-badge required">必須</span></label>
+            <input
+              id="inquiry-reply"
+              name="email"
+              type="email"
+              autocomplete="email"
+              maxlength="254"
+              placeholder="name@example.com"
+              required
+            >
+          </div>
+
+          <div class="inquiry-field">
+            <label for="inquiry-site">今のサイトのURL <span class="inquiry-badge">任意</span></label>
+            <p id="inquiry-site-help" class="inquiry-help">すでにサイトをお持ちの場合はご記入ください。</p>
+            <input
+              id="inquiry-site"
+              name="currentSite"
+              type="url"
+              autocomplete="url"
+              maxlength="500"
+              placeholder="https://example.com"
+              aria-describedby="inquiry-site-help"
+            >
+          </div>
+
+          <div class="inquiry-field">
+            <label for="inquiry-budget">ご予算の目安 <span class="inquiry-badge">任意</span></label>
+            <select id="inquiry-budget" name="budget">
+              <option value="">選択してください</option>
+              <option>3万円〜5万円未満</option>
+              <option>5万円〜10万円未満</option>
+              <option>10万円以上</option>
+              <option>相談して決めたい</option>
+            </select>
+          </div>
+
+          <!-- 追加のご相談・本文 -->
+          <fieldset class="inquiry-group" aria-describedby="inquiry-topics-help">
+            <legend>あわせて相談したいこと <span class="inquiry-badge">任意</span></legend>
+            <p id="inquiry-topics-help" class="inquiry-help">複数選べます。</p>
+            <div class="inquiry-options">
+              <label class="inquiry-option">
+                <input type="checkbox" name="topics" value="掲載内容・文章の整理">
+                <span>掲載内容・文章の整理</span>
+              </label>
+              <label class="inquiry-option">
+                <input type="checkbox" name="topics" value="写真や素材の準備">
+                <span>写真や素材の準備</span>
+              </label>
+              <label class="inquiry-option">
+                <input type="checkbox" name="topics" value="検索向けの基本設定">
+                <span>検索向けの基本設定</span>
+              </label>
+              <label class="inquiry-option">
+                <input type="checkbox" name="topics" value="公開後の更新・保守">
+                <span>公開後の更新・保守</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="inquiry-field">
+            <label for="inquiry-message">ご相談内容 <span class="inquiry-badge required">必須</span></label>
+            <textarea
+              id="inquiry-message"
+              name="message"
+              rows="6"
+              maxlength="1500"
+              placeholder="例：サイトを作り直したいのですが、何から始めればいいか相談したいです。"
+              required
+            ></textarea>
+          </div>
+
+          <div class="inquiry-submit">
+            <button class="button primary inquiry-primary" type="submit" disabled>相談内容を確認する</button>
+            <p>内容の確認後、メールアプリから送信できます。</p>
+            <!-- 受信用メールアドレスを変更するときは、このリンクの href を編集する。 -->
+            <p><a id="inquiry-email" href="mailto:ue070924@gmail.com">メールで直接相談する</a></p>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <dialog class="inquiry-review" id="inquiry-review" aria-labelledby="inquiry-review-heading">
+      <h2 id="inquiry-review-heading" tabindex="-1">ご相談内容の確認</h2>
+      <p id="inquiry-review-help">内容を確認して、メールアプリで送信してください。</p>
+      <label class="sr-only" for="inquiry-review-message">メール本文</label>
+      <textarea id="inquiry-review-message" rows="9" readonly></textarea>
+      <div class="inquiry-review-actions">
+        <a id="inquiry-send" class="button primary inquiry-primary">メールアプリを開く</a>
+        <button class="button secondary" type="button" id="inquiry-copy">本文をコピー</button>
+        <form method="dialog">
+          <button class="button secondary" type="submit">編集に戻る</button>
+        </form>
+      </div>
+      <p class="inquiry-review-status" id="inquiry-review-status" role="status"></p>
+    </dialog>
+
+    <footer class="inquiry-footer">
+      <div class="wrap">
+        <a href="./index.html#top">NextSprings トップへ</a>
+        <small>© NextSprings</small>
+      </div>
+    </footer>
+  </body>
+</html>

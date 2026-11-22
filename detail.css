@@ -1,0 +1,172 @@
+/* サービス・料金・制作事例ページの共通スタイル */
+.detail-hero {
+  background: var(--light);
+  padding-block: clamp(26px, 4vw, 54px) clamp(36px, 6vw, 84px);
+  border-bottom: 1px solid var(--line);
+}
+
+.detail-breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 13px;
+  padding: 0;
+  list-style: none;
+  color: var(--body);
+  font-size: 14px;
+}
+
+.detail-breadcrumb li + li::before {
+  margin-inline-end: 13px;
+  content: "/" / "";
+  color: var(--body);
+}
+
+.detail-breadcrumb a,
+.detail-body a:not(.button),
+.detail-footer a:not(.brand) {
+  text-decoration: underline;
+  text-underline-offset: .24em;
+}
+
+.detail-hero h1 {
+  max-width: 18em;
+  margin-top: clamp(18px, 3.5vw, 45px);
+  font-size: clamp(28px, 4.4vw, 56px);
+  font-weight: 900;
+  line-height: 1.3;
+  letter-spacing: -.035em;
+  text-wrap: balance;
+  word-break: keep-all;
+}
+
+.detail-intro {
+  max-width: 42em;
+  margin-top: 15px;
+  font-size: clamp(16px, 1.65vw, 20px);
+  line-height: 1.8;
+  text-wrap: pretty;
+}
+
+.detail-hero .actions {
+  margin-top: 23px;
+}
+
+.detail-body {
+  max-width: calc(880px + var(--gutter) * 2);
+  padding-block: clamp(34px, 6vw, 72px);
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.detail-body section + section,
+.detail-case + .detail-case,
+.detail-case + .detail-box {
+  margin-top: clamp(38px, 6vw, 70px);
+}
+
+.detail-credit + :is(section, article) {
+  margin-top: 24px;
+}
+
+.detail-body h2 {
+  font-size: clamp(24px, 3.2vw, 41px);
+}
+
+.detail-body h3 {
+  font-size: clamp(18px, 2vw, 23px);
+}
+
+.detail-body p + p,
+.detail-body :is(h2, h3) + :is(p, ul, ol, dl),
+.detail-body :is(ul, ol, dl) + p {
+  margin-top: 12px;
+}
+
+.detail-body a:not(.button) {
+  color: var(--red);
+}
+
+.detail-body ul,
+.detail-body ol {
+  padding-inline-start: 1.45em;
+}
+
+.detail-body :is(ul, ol) li + li {
+  margin-top: 6px;
+}
+
+.detail-list > div {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 2.1fr);
+  gap: 6px 20px;
+  padding-block: 13px;
+  border-bottom: 1px solid var(--line);
+}
+
+.detail-list dt {
+  font-weight: 700;
+}
+
+.detail-list dd {
+  color: var(--body);
+}
+
+.detail-box {
+  padding: clamp(18px, 3vw, 32px);
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  background: var(--light);
+}
+
+.detail-box .button {
+  margin-top: 17px;
+}
+
+.detail-photo {
+  margin-block: 18px;
+}
+
+.detail-photo img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.detail-photo figcaption,
+.detail-credit {
+  margin-top: 7px;
+  color: var(--body);
+  font-size: 14px;
+}
+
+.detail-case .button {
+  margin-top: 16px;
+}
+
+.detail-footer {
+  padding-block: 32px;
+  background: var(--black);
+  color: white;
+}
+
+.detail-footer .wrap,
+.detail-footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 22px;
+}
+
+.detail-footer .wrap {
+  justify-content: space-between;
+}
+
+.detail-footer nav {
+  font-size: 14px;
+}
+
+@media (max-width: 540px) {
+  .detail-list > div {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
