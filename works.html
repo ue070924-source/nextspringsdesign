@@ -14,8 +14,8 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap"
       rel="stylesheet"
     >
-    <link rel="stylesheet" href="./styles.css?v=3">
-    <link rel="stylesheet" href="./detail.css">
+    <link rel="stylesheet" href="./styles.css?v=8">
+    <link rel="stylesheet" href="./detail.css?v=2">
   </head>
   <body>
     <a class="skip" href="#main">本文へ移動</a>
@@ -46,7 +46,7 @@
           <p class="detail-intro">カフェと建築設計事務所を想定して自主制作した、公開中の2サイトをご紹介します。写真と文章の並べ方、訪れた方に次の行動を案内する方法を作品ごとにまとめました。</p>
           <div class="actions">
             <a class="button primary" href="./contact.html">サイト制作を相談する</a>
-            <a class="button secondary" href="./index.html#works">ほかのコンセプト作品を見る</a>
+            <a class="button secondary" href="./index.html#works">トップの制作事例に戻る</a>
           </div>
         </div>
       </div>
@@ -57,23 +57,55 @@
         <article class="detail-case" id="japan-coffee" aria-labelledby="case-coffee">
           <h2 id="case-coffee" lang="en">JAPAN COFFEE</h2>
           <p>国産コーヒーを扱うカフェを想定した自主制作サイトです。最初に写真でお店の雰囲気を伝え、豆・焙煎・抽出のこだわりを順に紹介。メニューではドリンクの写真・説明・価格を確認でき、最後にアクセスと営業時間を案内します。</p>
-          <figure class="detail-photo">
-            <img src="./assets/japan-coffee-site.webp" alt="木のテーブルにコーヒーカップとドリッパーが置かれたJAPAN COFFEEのメイン写真" width="1672" height="941" fetchpriority="high">
-            <figcaption>JAPAN COFFEEのトップで使用している写真</figcaption>
-          </figure>
+          <div class="site-preview">
+            <div class="site-preview-bar" aria-hidden="true"></div>
+            <div class="site-preview-screen">
+              <iframe
+                src="https://ue070924-source.github.io/japan-cofe-2.0/"
+                title="JAPAN COFFEEのトップページ"
+                loading="lazy"
+                sandbox="allow-scripts allow-same-origin"
+                referrerpolicy="no-referrer"
+                tabindex="-1"
+                inert
+              ></iframe>
+            </div>
+            <a
+              class="site-preview-link"
+              href="https://ue070924-source.github.io/japan-cofe-2.0/"
+              target="_blank"
+              rel="noopener"
+              aria-label="JAPAN COFFEEの公開サイトを開く（新しいタブ）"
+            >公開サイトを開く</a>
+          </div>
           <p>お店の雰囲気と、来店前に必要なメニューや営業時間を1ページにまとめた例です。</p>
-          <a class="button secondary" href="https://ue070924-source.github.io/japan-cofe-2.0/" target="_blank" rel="noopener" aria-label="JAPAN COFFEEの公開サイトを見る（新しいタブ）">公開サイトを見る</a>
         </article>
 
         <article class="detail-case" id="nexform" aria-labelledby="case-nexform">
           <h2 id="case-nexform" lang="en">NEXFORM ARCHITECTS</h2>
           <p>商業施設・オフィス・ビルを扱う建築設計事務所を想定した自主制作サイトです。トップから施工事例、設計の考え方、事業領域、設計の流れ、問い合わせへ進める構成です。写真を大きく扱い、空間の印象と、相談するときに必要な情報を順に伝えます。</p>
-          <figure class="detail-photo">
-            <img src="./assets/nexform-site.webp" alt="大きな開口部の向こうに庭が広がるNEXFORM ARCHITECTSのメイン写真" width="1536" height="864" loading="lazy" decoding="async">
-            <figcaption>NEXFORM ARCHITECTSのトップで使用しているコンセプト画像</figcaption>
-          </figure>
+          <div class="site-preview">
+            <div class="site-preview-bar" aria-hidden="true"></div>
+            <div class="site-preview-screen">
+              <iframe
+                src="https://ue070924-source.github.io/nexform/"
+                title="NEXFORM ARCHITECTSのトップページ"
+                loading="lazy"
+                sandbox="allow-scripts allow-same-origin"
+                referrerpolicy="no-referrer"
+                tabindex="-1"
+                inert
+              ></iframe>
+            </div>
+            <a
+              class="site-preview-link"
+              href="https://ue070924-source.github.io/nexform/"
+              target="_blank"
+              rel="noopener"
+              aria-label="NEXFORM ARCHITECTSの公開サイトを開く（新しいタブ）"
+            >公開サイトを開く</a>
+          </div>
           <p>掲載している建築案件は架空のコンセプトです。末尾の問い合わせフォームは画面の見本です。</p>
-          <a class="button secondary" href="https://ue070924-source.github.io/nexform/" target="_blank" rel="noopener" aria-label="NEXFORM ARCHITECTSの公開サイトを見る（新しいタブ）">公開サイトを見る</a>
         </article>
 
         <section class="detail-box" aria-labelledby="works-contact">

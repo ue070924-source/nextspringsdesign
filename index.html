@@ -17,9 +17,9 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap"
       rel="stylesheet"
     >
-    <link rel="stylesheet" href="./styles.css?v=5">
-    <link rel="stylesheet" href="./motion.css">
-    <script src="./site.js?v=2" defer></script>
+    <link rel="stylesheet" href="./styles.css?v=11">
+    <link rel="stylesheet" href="./motion.css?v=2">
+    <script src="./site.js?v=3" defer></script>
     <script src="./motion.js" defer></script>
   </head>
   <body id="top">
@@ -64,7 +64,7 @@
               <div>
                 <dt>制作費</dt>
                 <dd>
-                  <strong>30,000</strong>
+                  <strong class="hero-price">30,000</strong>
                   <span>円〜</span>
                 </dd>
               </div>
@@ -161,7 +161,7 @@
               </h2>
               <p class="statement-description">
                 <span>お店や事業のこと、届けたいお客さまのこと。</span>
-                <span>お話を聞いて、サイトに載せる内容を一緒に整理します。</span>
+                <span>お話をお伺いし、サイトに載せる内容を一緒に整理します。</span>
               </p>
               <p class="statement-hint">相談・ご提案無料です！</p>
               <a class="button primary statement-button" href="./contact.html">
@@ -235,17 +235,30 @@
           </div>
           <div class="services-content">
             <figure class="services-feature" data-reveal data-delay="1">
-              <img
-                src="./assets/nexform-site.webp"
-                alt="木の天井と庭が印象的な建築設計事務所サイトのメイン画像"
-                width="1536"
-                height="864"
-                loading="lazy"
-                decoding="async"
-              >
+              <div class="site-preview">
+                <div class="site-preview-bar" aria-hidden="true"></div>
+                <div class="site-preview-screen">
+                  <iframe
+                    src="https://ue070924-source.github.io/nexform/"
+                    title="NEXFORM ARCHITECTSのトップページ"
+                    loading="lazy"
+                    sandbox="allow-scripts allow-same-origin"
+                    referrerpolicy="no-referrer"
+                    tabindex="-1"
+                    inert
+                  ></iframe>
+                </div>
+                <a
+                  class="site-preview-link"
+                  href="https://ue070924-source.github.io/nexform/"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="NEXFORM ARCHITECTSのトップページを開く（新しいタブ）"
+                >公開サイトを開く <span aria-hidden="true">↗</span></a>
+              </div>
               <figcaption>
-                <span>自主制作</span>
-                <span lang="en">NEXFORM ARCHITECTS</span>
+                <strong lang="en">NEXFORM ARCHITECTS</strong>
+                <span>自主制作の建築設計事務所サイト</span>
               </figcaption>
             </figure>
 
@@ -268,448 +281,440 @@
       </section>
 
       <!-- 制作事例 -->
-      <section class="section" id="works" aria-labelledby="works-heading">
+      <section class="section works" id="works" aria-labelledby="works-heading">
         <div class="wrap">
           <div class="section-intro center" data-reveal>
             <span lang="en" class="eyebrow red">WORKS</span>
             <h2 id="works-heading"><span class="underline">制作事例</span></h2>
-            <p>カフェや建築設計事務所などを想定した自主制作です。公開中の作品は、実際のサイトもご覧いただけます。</p>
-            <a class="project-link" href="./works.html">公開した2作品の構成とデザインを見る</a>
+            <p>公開中の自主制作サイトと、業種に合わせたデザイン案をご覧いただけます。</p>
           </div>
-          <div class="carousel" data-reveal data-delay="1" aria-roledescription="カルーセル" aria-labelledby="works-heading">
-            <!-- 作品の追加・削除時は、下の切り替えボタンと aria-label の件数も更新する -->
-            <div class="work-track" id="work-track" tabindex="0" aria-label="制作事例">
-              <article class="project" aria-roledescription="スライド" aria-label="1 / 6">
-                <div class="project-cover">
-                  <img src="./assets/japan-coffee-site.webp" alt="" loading="lazy" width="1672" height="941">
-                  <div>
-                    <span lang="en">JAPAN COFFEE</span>
-                    <p>日本の豆、<br>日本の一杯。</p>
-                  </div>
-                </div>
-                <div class="project-copy">
-                  <span class="tag">カフェ・飲食店</span>
-                  <h3 lang="en">JAPAN COFFEE</h3>
-                  <p>国産コーヒーのこだわりや、ドリンクメニューを写真で紹介するカフェサイト。</p>
-                  <small>自主制作・コンセプト作品</small>
-                  <a
-                    class="project-link"
-                    href="https://ue070924-source.github.io/japan-cofe-2.0/"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="JAPAN COFFEEの公開サイトを見る（新しいタブ）"
-                  >公開サイトを見る</a>
-                </div>
-              </article>
 
-              <article class="project" aria-roledescription="スライド" aria-label="2 / 6">
-                <div class="project-cover">
-                  <img src="./assets/nexform-site.webp" alt="" loading="lazy" width="1536" height="864">
-                  <div>
-                    <span lang="en">NEXFORM ARCHITECTS</span>
-                    <p>この街に、<br>次の風景を。</p>
-                  </div>
+          <div class="project-track" id="project-track" role="group" aria-label="制作事例の一覧" tabindex="0" data-reveal>
+            <article class="project">
+              <div class="site-preview">
+                <div class="site-preview-bar" aria-hidden="true"></div>
+                <div class="site-preview-screen">
+                  <iframe
+                    src="https://ue070924-source.github.io/japan-cofe-2.0/"
+                    title="JAPAN COFFEEのトップページ"
+                    loading="lazy"
+                    sandbox="allow-scripts allow-same-origin"
+                    referrerpolicy="no-referrer"
+                    tabindex="-1"
+                    inert
+                  ></iframe>
                 </div>
-                <div class="project-copy">
-                  <span class="tag">建築設計</span>
-                  <h3 lang="en">NEXFORM ARCHITECTS</h3>
-                  <p>商業施設やオフィスの設計事例から、相談・設計の流れまでを紹介するサイト。</p>
-                  <small>自主制作・コンセプト作品</small>
-                  <a
-                    class="project-link"
-                    href="https://ue070924-source.github.io/nexform/"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="NEXFORM ARCHITECTSの公開サイトを見る（新しいタブ）"
-                  >公開サイトを見る</a>
-                </div>
-              </article>
-
-              <article class="project" aria-roledescription="スライド" aria-label="3 / 6">
-                <div class="project-cover">
-                  <img src="./assets/toki-hair.webp" alt="" loading="lazy" width="393" height="207">
-                  <div>
-                    <span lang="en">toki hair</span>
-                    <p>髪が整う。<br>気持ちもほどける。</p>
-                  </div>
-                </div>
-                <div class="project-copy">
-                  <span class="tag">美容室・サロン</span>
-                  <h3 lang="en">toki hair</h3>
-                  <p>施術メニュー、スタイル、予約先をひとつにまとめた美容室サイト。</p>
-                  <small>自主制作・コンセプト作品</small>
-                </div>
-              </article>
-
-              <article class="project" aria-roledescription="スライド" aria-label="4 / 6">
-                <div class="project-cover">
-                  <img src="./assets/kino.webp" alt="" loading="lazy" width="393" height="207">
-                  <div>
-                    <span>木野工務店</span>
-                    <p>木と暮らす家を、<br>この街で。</p>
-                  </div>
-                </div>
-                <div class="project-copy">
-                  <span class="tag">建築・リフォーム</span>
-                  <h3>木野工務店</h3>
-                  <p>施工写真と対応工事を整理し、見積もり相談へつなぐサイト案。</p>
-                  <small>自主制作・コンセプト作品</small>
-                </div>
-              </article>
-
-              <article class="project" aria-roledescription="スライド" aria-label="5 / 6">
-                <div class="project-cover">
-                  <img src="./assets/hiyori.webp" alt="" loading="lazy" width="393" height="207">
-                  <div>
-                    <span>食堂 ひより</span>
-                    <p>今日の一皿を、<br>ゆっくりと。</p>
-                  </div>
-                </div>
-                <div class="project-copy">
-                  <span class="tag">飲食店・レストラン</span>
-                  <h3>食堂 ひより</h3>
-                  <p>料理写真と営業時間、来店時の案内を分かりやすく載せた店舗サイト。</p>
-                  <small>自主制作・コンセプト作品</small>
-                </div>
-              </article>
-
-              <article class="project" aria-roledescription="スライド" aria-label="6 / 6">
-                <div class="project-cover">
-                  <img src="./assets/yohaku.webp" alt="" loading="lazy" width="393" height="207">
-                  <div>
-                    <span>余白写真室</span>
-                    <p>その日の光を、<br>一枚に。</p>
-                  </div>
-                </div>
-                <div class="project-copy">
-                  <span class="tag">個人事業・写真家</span>
-                  <h3>余白写真室</h3>
-                  <p>写真作品、撮影メニュー、依頼先を紹介するポートフォリオ。</p>
-                  <small>自主制作・コンセプト作品</small>
-                </div>
-              </article>
-            </div>
-            <div class="carousel-controls" hidden>
-              <button
-                type="button"
-                class="round"
-                data-direction="-1"
-                aria-label="前の作品"
-                aria-controls="work-track"
-              >
-                ‹
-              </button>
-              <div class="dots" aria-label="表示する作品">
-                <button
-                  type="button"
-                  data-slide="0"
-                  aria-label="JAPAN COFFEEから表示"
-                  aria-current="true"
-                >
-                  <img src="./assets/dot-active.svg" alt="" width="7" height="7">
-                </button>
-                <button type="button" data-slide="1" aria-label="NEXFORM ARCHITECTSから表示">
-                  <img src="./assets/dot-2.svg" alt="" width="7" height="7">
-                </button>
-                <button type="button" data-slide="2" aria-label="toki hairから表示">
-                  <img src="./assets/dot-3.svg" alt="" width="7" height="7">
-                </button>
-                <button type="button" data-slide="3" aria-label="木野工務店から表示">
-                  <img src="./assets/dot-4.svg" alt="" width="7" height="7">
-                </button>
-                <button type="button" data-slide="4" aria-label="食堂 ひよりから表示">
-                  <img src="./assets/dot-5.svg" alt="" width="7" height="7">
-                </button>
-                <button type="button" data-slide="5" aria-label="余白写真室から表示">
-                  <img src="./assets/dot-2.svg" alt="" width="7" height="7">
-                </button>
+                <a
+                  class="site-preview-link"
+                  href="https://ue070924-source.github.io/japan-cofe-2.0/"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="JAPAN COFFEEの公開サイトを開く（新しいタブ）"
+                >公開サイトを開く <span aria-hidden="true">↗</span></a>
               </div>
-              <button
-                type="button"
-                class="round"
-                data-direction="1"
-                aria-label="次の作品"
-                aria-controls="work-track"
-              >
-                ›
-              </button>
-            </div>
-            <p class="sr-only" aria-live="polite" data-carousel-status></p>
+              <div class="project-copy">
+                <span class="tag">カフェ・飲食店</span>
+                <h3 lang="en">JAPAN COFFEE</h3>
+                <p>写真と余白で店の雰囲気を伝え、こだわり、メニュー、アクセスを1ページにまとめました。</p>
+              </div>
+            </article>
+
+            <article class="project">
+              <div class="site-preview">
+                <div class="site-preview-bar" aria-hidden="true"></div>
+                <div class="site-preview-screen">
+                  <iframe
+                    src="https://ue070924-source.github.io/nexform/"
+                    title="NEXFORM ARCHITECTSのトップページ"
+                    loading="lazy"
+                    sandbox="allow-scripts allow-same-origin"
+                    referrerpolicy="no-referrer"
+                    tabindex="-1"
+                    inert
+                  ></iframe>
+                </div>
+                <a
+                  class="site-preview-link"
+                  href="https://ue070924-source.github.io/nexform/"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="NEXFORM ARCHITECTSの公開サイトを開く（新しいタブ）"
+                >公開サイトを開く <span aria-hidden="true">↗</span></a>
+              </div>
+              <div class="project-copy">
+                <span class="tag">建築設計</span>
+                <h3 lang="en">NEXFORM ARCHITECTS</h3>
+                <p>空間の写真を大きく配置し、施工事例から設計の考え方、相談まで順に読めるようにしました。</p>
+              </div>
+            </article>
+
+            <!-- 公開サイトができたら、画像を上の事例と同じ構造のプレビューとリンクに置き換える。 -->
+            <article class="project">
+              <div class="site-preview">
+                <div class="site-preview-bar">
+                  <span class="site-preview-state">仮のデザイン</span>
+                </div>
+                <div class="site-preview-screen">
+                  <img
+                    src="./assets/toki-hair-concept-preview.webp"
+                    alt="淡いピンクの配色にヘアサロンの内装写真とメニューを合わせたトップページ案"
+                    width="1200"
+                    height="750"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                </div>
+              </div>
+              <div class="project-copy">
+                <span class="tag">美容室・サロン</span>
+                <h3 lang="en">toki hair</h3>
+                <p>内装の雰囲気を写真で伝え、施術メニューや予約先へ進みやすくした美容室サイト案。</p>
+              </div>
+            </article>
+
+            <article class="project">
+              <div class="site-preview">
+                <div class="site-preview-bar">
+                  <span class="site-preview-state">仮のデザイン</span>
+                </div>
+                <div class="site-preview-screen">
+                  <img
+                    src="./assets/kino-concept-preview.webp"
+                    alt="木造住宅の外観を大きく使い、家づくりの案内と施工事例へのボタンを並べたトップページ案"
+                    width="1200"
+                    height="750"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                </div>
+              </div>
+              <div class="project-copy">
+                <span class="tag">建築・リフォーム</span>
+                <h3>木野工務店</h3>
+                <p>家づくりの特徴を写真と短い文章で伝え、施工事例や相談へつなぐ工務店サイト案。</p>
+              </div>
+            </article>
+
+            <article class="project">
+              <div class="site-preview">
+                <div class="site-preview-bar">
+                  <span class="site-preview-state">仮のデザイン</span>
+                </div>
+                <div class="site-preview-screen">
+                  <img
+                    src="./assets/hiyori-concept-preview.webp"
+                    alt="パスタの写真に店の紹介を添え、下にお品書きを配置した食堂のトップページ案"
+                    width="1200"
+                    height="750"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                </div>
+              </div>
+              <div class="project-copy">
+                <span class="tag">飲食店・レストラン</span>
+                <h3>食堂 ひより</h3>
+                <p>料理写真からお品書きへつなぎ、アクセスなど来店前に知りたい情報をまとめた食堂サイト案。</p>
+              </div>
+            </article>
+
+            <article class="project">
+              <div class="site-preview">
+                <div class="site-preview-bar">
+                  <span class="site-preview-state">仮のデザイン</span>
+                </div>
+                <div class="site-preview-screen">
+                  <img
+                    src="./assets/yohaku-concept-preview.webp"
+                    alt="カメラとプリント写真を中心に、撮影ジャンルを余白の多い紙面で案内するトップページ案"
+                    width="1200"
+                    height="750"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                </div>
+              </div>
+              <div class="project-copy">
+                <span class="tag">個人事業・写真家</span>
+                <h3>余白写真室</h3>
+                <p>撮影ジャンル別に作品を見せ、撮影内容や依頼先を案内する写真家のポートフォリオ案。</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="project-controls" aria-label="制作事例の切り替え" role="group" hidden>
+            <button type="button" data-direction="-1" aria-label="前の制作事例" aria-controls="project-track">
+              <span aria-hidden="true">‹</span>
+            </button>
+            <p class="project-status" role="status" aria-atomic="true"></p>
+            <button type="button" data-direction="1" aria-label="次の制作事例" aria-controls="project-track">
+              <span aria-hidden="true">›</span>
+            </button>
+          </div>
+
+          <div class="works-more center">
+            <a class="project-link" href="./works.html">公開サイト2件の構成とデザインを見る</a>
           </div>
         </div>
       </section>
 
-      <!-- 制作料金・保守料金 -->
+      <!-- 制作料金 -->
       <section class="section light" id="pricing" aria-labelledby="price-heading">
         <div class="wrap">
           <div class="section-intro center" data-reveal>
             <span class="eyebrow" lang="en">PRICE</span>
             <h2 id="price-heading">料金プラン</h2>
-            <p>ヒアリングから、デザイン・公開、保守までトータル対応</p>
           </div>
-          <!-- 料金を変えるときは、トップ画面・比較表・FAQの金額も確認する -->
-          <div class="price-lead" data-reveal data-delay="1">
-            <div>
-              <h3>Webサイト制作</h3>
-              <p class="amount">
-                <strong>30,000</strong>
-                <span>円〜</span>
-              </p>
+          <!-- 制作費を変えるときは、トップ画面・比較表・FAQの金額も確認する -->
+          <section class="included" aria-labelledby="included-heading" data-reveal>
+            <div class="included-intro">
+              <div>
+                <h3 id="included-heading">基本料金に含まれるもの</h3>
+                <p>企画・デザインから制作、公開まで。</p>
+              </div>
+              <div class="included-price">
+                <p>Webサイト制作</p>
+                <p class="amount"><strong>30,000</strong><span>円〜</span></p>
+              </div>
+            </div>
+
+            <ul class="included-grid" role="list">
+              <li>
+                <details name="included-scope">
+                  <summary>
+                    <img src="./assets/flow-interview.svg" alt="" width="24" height="24">
+                    <span class="included-label">ヒアリング・<wbr>市場調査</span>
+                    <span class="included-caption">競合・顧客層の<wbr>分析</span>
+                  </summary>
+                  <p>事業内容やご要望を伺い、ターゲットや競合サイトを分析。伝えるべき魅力を整理します。</p>
+                </details>
+              </li>
+              <li>
+                <details name="included-scope">
+                  <summary>
+                    <img src="./assets/pricing-layout.svg" alt="" width="24" height="24">
+                    <span class="included-label">構成・<wbr>デザイン提案</span>
+                    <span class="included-caption">Figmaでご提案</span>
+                  </summary>
+                  <p>サイト全体の構成や導線を設計。ワイヤーフレームとデザイン案を作成し、Figmaでご提案します。</p>
+                </details>
+              </li>
+              <li>
+                <details name="included-scope">
+                  <summary>
+                    <img src="./assets/pricing-image.svg" alt="" width="24" height="24">
+                    <span class="included-label">文章・画像の<wbr>制作補助</span>
+                    <span class="included-caption">文章づくり・<wbr>AI画像生成</span>
+                  </summary>
+                  <p>キャッチコピーや紹介文の作成補助、画像の選定・加工・AI画像生成まで対応します。</p>
+                </details>
+              </li>
+              <li>
+                <details name="included-scope">
+                  <summary>
+                    <img src="./assets/flow-design.svg" alt="" width="24" height="24">
+                    <span class="included-label">オリジナル<wbr>デザイン</span>
+                    <span class="included-caption">スマホ・<wbr>タブレット対応</span>
+                  </summary>
+                  <p>事業のイメージに合わせたデザインを制作。スマートフォン・タブレットにも対応します。</p>
+                </details>
+              </li>
+              <li>
+                <details name="included-scope">
+                  <summary>
+                    <img src="./assets/pricing-code.svg" alt="" width="24" height="24">
+                    <span class="included-label">コーディング</span>
+                    <span class="included-caption">メニュー・<wbr>ボタンの実装</span>
+                  </summary>
+                  <p>HTML・CSS・JavaScriptで実装。メニューやボタンなど、基本的な操作機能を整えます。</p>
+                </details>
+              </li>
+              <li>
+                <details name="included-scope">
+                  <summary>
+                    <img src="./assets/flow-contact.svg" alt="" width="24" height="24">
+                    <span class="included-label">お問い合わせ<wbr>フォーム</span>
+                    <span class="included-caption">電話・SNS・<wbr>地図連携</span>
+                  </summary>
+                  <p>お問い合わせフォーム、電話・メール・SNSリンク、Googleマップなどを設置します。</p>
+                </details>
+              </li>
+              <li>
+                <details name="included-scope">
+                  <summary>
+                    <img src="./assets/pricing-search.svg" alt="" width="24" height="24">
+                    <span class="included-label">SEO・集客の<wbr>基本設計</span>
+                    <span class="included-caption">キーワード調査・<wbr>検索設定</span>
+                  </summary>
+                  <p>キーワード調査、SEOを意識した文章作成、検索・SNS向け設定、Googleビジネスプロフィールの導入支援まで対応します。</p>
+                </details>
+              </li>
+              <li>
+                <details name="included-scope">
+                  <summary>
+                    <img src="./assets/pricing-server.svg" alt="" width="24" height="24">
+                    <span class="included-label">サーバー<wbr>設定・公開</span>
+                    <span class="included-caption">独自ドメイン・<wbr>HTTPS対応</span>
+                  </summary>
+                  <p>公開先の選定、初期設定、独自ドメイン接続、HTTPS対応からサイト公開までサポートします。</p>
+                </details>
+              </li>
+              <li>
+                <details name="included-scope">
+                  <summary>
+                    <img src="./assets/flow-launch.svg" alt="" width="24" height="24">
+                    <span class="included-label">品質確認・修正・納品</span>
+                    <span class="included-caption">動作確認・<wbr>公開前の修正2回</span>
+                  </summary>
+                  <p>スマホ・PCでの動作や表示速度を確認。公開前の修正2回、納品後の不具合対応まで行います。</p>
+                </details>
+              </li>
+            </ul>
+
+            <div class="included-footer">
               <p>スマホ対応の1ページが基本です。</p>
+              <a class="button primary" href="./contact.html">制作について相談する</a>
             </div>
-            <a class="button primary" href="./contact.html">
-              制作について相談する
-              <img src="./assets/arrow-light.svg" alt="" width="20" height="20">
-            </a>
+          </section>
+
+          <div class="pricing-notes">
+            <p>※基本料金は小規模な1ページ型Webサイトを対象とします。各サービスには作業範囲・回数の上限があります。ドメイン・サーバー・有料外部サービスの実費、追加機能は別途となります。</p>
+            <p>制作費は着手時50％、納品時50％が基本です。</p>
           </div>
-          <h3 class="included-title" data-reveal>基本料金に含まれるもの</h3>
-          <div class="included">
-            <article data-reveal>
-              <h4>構成提案</h4>
-              <p>伝える内容と、掲載する順番を一緒に整理。</p>
-            </article>
-
-            <article data-reveal data-delay="1">
-              <h4>文章のたたき台</h4>
-              <p>見出しや短い紹介文を一緒に考えます。</p>
-            </article>
-
-            <article data-reveal data-delay="2">
-              <h4>オリジナルデザイン</h4>
-              <p>事業の雰囲気に合わせて、1ページを制作。</p>
-            </article>
-
-            <article data-reveal>
-              <h4>スマホ対応・演出</h4>
-              <p>スマホの見え方を整え、軽い動きを加えます。</p>
-            </article>
-
-            <article data-reveal data-delay="1">
-              <h4>問い合わせ・検索設定</h4>
-              <p>電話・メールへのボタンと、検索向けの基本設定。</p>
-            </article>
-
-            <article data-reveal data-delay="2">
-              <h4>修正・公開</h4>
-              <p>公開前の修正は2回まで。公開作業まで対応。</p>
-            </article>
-          </div>
-          <div class="maintenance" data-reveal>
-            <div>
-              <h3>公開後の保守</h3>
-              <p class="amount">
-                <strong>5,000</strong>
-                <span>円／月〜</span>
-              </p>
-            </div>
-            <p>表示と主要リンクを確認し、月1回まで文章や写真の軽微な差し替えに対応します。</p>
-          </div>
-          <p class="note">
-            制作費は着手時50％、納品時50％が基本です。追加ページや撮影、送信フォーム、ドメイン・サーバーの実費は、必要に応じて事前にご案内します。
-          </p>
         </div>
       </section>
 
-      <!-- 他社との比較 -->
-      <section class="section" id="comparison" aria-labelledby="comparison-heading">
+      <!-- 他社との比較・料金を抑えられる理由 -->
+      <section class="section comparison" id="comparison" aria-labelledby="comparison-heading">
         <div class="wrap">
           <div class="section-intro center" data-reveal>
-            <span class="eyebrow red" lang="en">COMPARE</span>
             <h2 id="comparison-heading">
               <span>Webサイト制作、</span><wbr><span>他社と比べて</span><wbr><span>みてください。</span>
             </h2>
-            <p>
-              制作費だけでなく、対応内容も比較。NextSpringsなら、Webサイトの構成からデザイン・制作・公開まで、30,000円から対応します。
+            <p class="compare-lead">
+              <strong>必要な制作工程をまとめて、<wbr><span class="compare-lead-price">NextSpringsなら30,000円から。</span></strong>
             </p>
           </div>
-          <table class="compare" role="table" aria-labelledby="comparison-heading">
-            <colgroup>
-              <col class="item-col">
-              <col>
-              <col>
-              <col>
-              <col>
-            </colgroup>
-            <thead>
-              <tr>
-                <th scope="col">比較項目</th>
-                <th scope="col">A社（個人制作）</th>
-                <th scope="col">B社（制作会社）</th>
-                <th scope="col">C社（戦略型LP）</th>
-                <th scope="col">NextSprings</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr data-reveal="fade">
-                <th scope="row">初期制作費</th>
-                <td>
-                  <span aria-hidden="true">A社（個人制作）</span>
-                  約200,000円〜
-                </td>
-                <td>
-                  <span aria-hidden="true">B社（制作会社）</span>
-                  約500,000円〜
-                </td>
-                <td>
-                  <span aria-hidden="true">C社（戦略型LP）</span>
-                  約800,000円〜
-                </td>
-                <td>
-                  <span aria-hidden="true">NextSprings</span>
-                  30,000円〜
-                </td>
-              </tr>
 
-              <tr data-reveal="fade" data-delay="1">
-                <th scope="row">基本ページ数</th>
-                <td>
-                  <span aria-hidden="true">A社（個人制作）</span>
-                  1ページ
-                </td>
-                <td>
-                  <span aria-hidden="true">B社（制作会社）</span>
-                  1ページ
-                </td>
-                <td>
-                  <span aria-hidden="true">C社（戦略型LP）</span>
-                  1ページ
-                </td>
-                <td>
-                  <span aria-hidden="true">NextSprings</span>
-                  1ページ
-                </td>
-              </tr>
-
-              <tr data-reveal="fade" data-delay="2">
-                <th scope="row">構成・文章</th>
-                <td>
-                  <span aria-hidden="true">A社（個人制作）</span>
-                  個別確認
-                </td>
-                <td>
-                  <span aria-hidden="true">B社（制作会社）</span>
-                  個別確認
-                </td>
-                <td>
-                  <span aria-hidden="true">C社（戦略型LP）</span>
-                  本格的な構成・原稿作成
-                </td>
-                <td>
-                  <span aria-hidden="true">NextSprings</span>
-                  構成提案・短文作成補助
-                </td>
-              </tr>
-
-              <tr data-reveal="fade">
-                <th scope="row">デザイン・制作</th>
-                <td>
-                  <span aria-hidden="true">A社（個人制作）</span>
-                  個別確認
-                </td>
-                <td>
-                  <span aria-hidden="true">B社（制作会社）</span>
-                  個別確認
-                </td>
-                <td>
-                  <span aria-hidden="true">C社（戦略型LP）</span>
-                  対応
-                </td>
-                <td>
-                  <span aria-hidden="true">NextSprings</span>
-                  基本料金に含む
-                </td>
-              </tr>
-
-              <tr data-reveal="fade" data-delay="1">
-                <th scope="row">スマホ対応</th>
-                <td>
-                  <span aria-hidden="true">A社（個人制作）</span>
-                  個別確認
-                </td>
-                <td>
-                  <span aria-hidden="true">B社（制作会社）</span>
-                  個別確認
-                </td>
-                <td>
-                  <span aria-hidden="true">C社（戦略型LP）</span>
-                  対応
-                </td>
-                <td>
-                  <span aria-hidden="true">NextSprings</span>
-                  基本料金に含む
-                </td>
-              </tr>
-
-              <tr data-reveal="fade" data-delay="2">
-                <th scope="row">公開作業</th>
-                <td>
-                  <span aria-hidden="true">A社（個人制作）</span>
-                  個別確認
-                </td>
-                <td>
-                  <span aria-hidden="true">B社（制作会社）</span>
-                  個別確認
-                </td>
-                <td>
-                  <span aria-hidden="true">C社（戦略型LP）</span>
-                  対応
-                </td>
-                <td>
-                  <span aria-hidden="true">NextSprings</span>
-                  基本料金に含む
-                </td>
-              </tr>
-
-              <tr data-reveal="fade">
-                <th scope="row">制作期間</th>
-                <td>
-                  <span aria-hidden="true">A社（個人制作）</span>
-                  案件による
-                </td>
-                <td>
-                  <span aria-hidden="true">B社（制作会社）</span>
-                  案件による
-                </td>
-                <td>
-                  <span aria-hidden="true">C社（戦略型LP）</span>
-                  約2週間〜（改善運用別）
-                </td>
-                <td>
-                  <span aria-hidden="true">NextSprings</span>
-                  約2週間〜
-                </td>
-              </tr>
-
-              <tr data-reveal="fade" data-delay="1">
-                <th scope="row">公開後の保守</th>
-                <td>
-                  <span aria-hidden="true">A社（個人制作）</span>
-                  契約による
-                </td>
-                <td>
-                  <span aria-hidden="true">B社（制作会社）</span>
-                  契約による
-                </td>
-                <td>
-                  <span aria-hidden="true">C社（戦略型LP）</span>
-                  プランにより対応
-                </td>
-                <td>
-                  <span aria-hidden="true">NextSprings</span>
-                  月5,000円〜
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="compare-summary" data-reveal>
-            <h3>制作に必要なことを、まとめて3万円から。</h3>
-            <p>
-              掲載内容の整理、デザイン、サイト制作、公開まで。初めての方でも安心してご依頼いただけるよう、代表が直接サポートします。
+          <div class="compare-panel" data-reveal="fade">
+            <p class="compare-scroll-hint">横にスライドして他社の項目を見る <span aria-hidden="true">→</span></p>
+            <div class="compare-viewport" role="region" aria-label="制作条件の比較表" tabindex="0">
+              <table class="compare" aria-labelledby="comparison-heading" aria-describedby="comparison-note">
+                <colgroup>
+                  <col class="compare-item-col">
+                  <col class="compare-featured-col">
+                  <col>
+                  <col>
+                  <col>
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th scope="col">比較項目</th>
+                    <th class="compare-featured" scope="col">NextSprings</th>
+                    <th scope="col">A社・低価格LP型</th>
+                    <th scope="col">B社・原稿制作型</th>
+                    <th scope="col">C社・専門制作型</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="compare-prices">
+                    <th scope="row">初期制作費</th>
+                    <td class="compare-featured"><strong>30,000円〜</strong></td>
+                    <td>50,000円</td>
+                    <td>100,000円〜</td>
+                    <td>660,000円</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">制作対象</th>
+                    <td class="compare-featured">1ページ</td>
+                    <td>1ページ</td>
+                    <td>1ページ</td>
+                    <td>1ページ</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">企画・構成</th>
+                    <td class="compare-featured">ヒアリング・構成提案</td>
+                    <td>ヒアリング・構成設計</td>
+                    <td>ヒアリング・構成案</td>
+                    <td>LP設計・進行管理</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">文章制作</th>
+                    <td class="compare-featured">見出し・短文の作成補助</td>
+                    <td>構成整理・文章相談</td>
+                    <td>原稿作成込み</td>
+                    <td>LPの企画・設計</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">デザイン・実装</th>
+                    <td class="compare-featured"><strong>一括対応</strong></td>
+                    <td>一括対応</td>
+                    <td>一括対応</td>
+                    <td>専門チームで対応</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">問い合わせ機能</th>
+                    <td class="compare-featured">送信フォーム・電話・メール導線</td>
+                    <td>送信フォーム込み</td>
+                    <td>送信フォーム込み</td>
+                    <td>送信フォーム込み</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">特徴</th>
+                    <td class="compare-featured"><strong>代表が直接担当・公開前修正2回</strong></td>
+                    <td>ドメイン接続・ホスティング込み</td>
+                    <td>原稿作成・アクセス解析設定込み</td>
+                    <td>専門チームによる制作・品質管理</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="compare-note" id="comparison-note">
+              ※制作範囲やページの長さ、原稿制作、フォーム、運用サービスなどには違いがあります。同一仕様の見積金額や品質を比較したものではありません。NextSpringsの追加ページ・追加機能、ドメイン・サーバー・有料外部サービスの実費は別途となります。
             </p>
           </div>
-          <p class="note">
-            ※他社価格は2026年11月時点に確認した公開プランの参考例で、社名を匿名化しています。税区分や制作範囲、ページの長さ、戦略設計・運用支援の有無は異なります。「個別確認」は未対応を意味しません。NextSpringsは基本1ページの制作料金であり、ドメイン・サーバー実費や追加機能は別途費用が発生する場合があります。
-          </p>
+
+          <section class="compare-reasons" aria-labelledby="compare-reasons-heading">
+            <div class="compare-reasons-intro" data-reveal>
+              <h3 id="compare-reasons-heading"><span>安さには、</span><wbr><span>理由があります。</span></h3>
+              <p class="compare-reasons-lead"><strong>制作の工程は大切に。余分なコストは、できるだけ少なく。</strong></p>
+              <p>NextSpringsでは、小規模事業者の方にも気軽にWebサイトを持っていただけるよう、制作体制と作業工程を工夫しています。</p>
+            </div>
+            <ol class="compare-reasons-list" role="list">
+              <li data-reveal>
+                <span class="compare-reason-number" aria-hidden="true">01</span>
+                <div>
+                  <h4>ヒアリングから制作まで、一人が一貫して担当</h4>
+                  <p>ご相談、ヒアリング、構成提案、デザイン、コーディングまで、原則として同じ担当者が進行します。</p>
+                  <p>複数の担当者を介さないことで、情報共有や確認にかかる時間を削減。ご要望を直接制作に反映できる体制を整えています。</p>
+                </div>
+              </li>
+              <li data-reveal>
+                <span class="compare-reason-number" aria-hidden="true">02</span>
+                <div>
+                  <h4>必要な機能に絞った、シンプルな料金設計</h4>
+                  <p>基本プランは、スマートフォン対応の1ページ型Webサイト。</p>
+                  <p>多機能なシステムや大規模なページ構成を標準料金に含めず、事業の魅力を伝えるために必要な機能を中心に制作します。</p>
+                </div>
+              </li>
+              <li data-reveal>
+                <span class="compare-reason-number" aria-hidden="true">03</span>
+                <div>
+                  <h4>小規模な制作体制で、管理コストを抑える</h4>
+                  <p>大規模な制作組織を前提とせず、制作担当者を中心としたシンプルな体制で進めます。</p>
+                  <p>制作に必要なコミュニケーションと工程を整理することで、余分な管理コストを抑えています。</p>
+                </div>
+              </li>
+            </ol>
+          </section>
+
+          <section class="compare-closing" id="compare-closing" aria-labelledby="compare-closing-heading" data-reveal>
+            <h3 id="compare-closing-heading" class="compare-closing-title">
+              <span>Webサイト制作を、</span><wbr><span>もっと身近に。</span>
+            </h3>
+            <p>高額な制作費がハードルになっていた方にも、自分の事業を伝えるWebサイトを持っていただきたい。</p>
+            <p>それが、NextSpringsの<strong>30,000円から</strong>のWeb制作です。</p>
+          </section>
         </div>
       </section>
 
@@ -873,7 +878,7 @@
 
             <details name="faq" data-reveal data-delay="2">
               <summary>追加料金はどんなときにかかる？</summary>
-              <p>追加ページ、撮影、送信フォームなどをご希望の場合は、事前にお見積もりします。</p>
+              <p>追加ページや撮影、基本範囲を超える機能は事前にお見積もりします。ドメイン・サーバーや有料外部サービスの実費は別途ご案内します。</p>
             </details>
 
             <details name="faq" data-reveal data-delay="3">
@@ -900,7 +905,7 @@
         <div class="contact-grid">
           <section aria-labelledby="contact-services" data-reveal>
             <h2 id="contact-services">サービス・料金</h2>
-            <p>制作に含まれる内容と、<br>公開後の保守をご確認いただけます。</p>
+            <p>制作費と、基本料金に含まれる内容をご確認いただけます。</p>
             <a class="button secondary" href="#pricing">
               料金とサービスを見る
               <img src="./assets/arrow-dark.svg" alt="" width="20" height="20">

@@ -307,6 +307,10 @@ main p {
   line-height: 1.35;
 }
 
+.hero-facts .hero-price {
+  color: var(--ink);
+}
+
 .hero-facts dd span {
   font-size: 14px;
   font-weight: 700;
@@ -698,32 +702,106 @@ main p {
 }
 
 .services-feature {
-  border-radius: 10px;
-  overflow: hidden;
-  background: var(--black);
-  color: white;
-  box-shadow: 10px 10px 0 var(--pink);
+  min-width: 0;
 }
 
-.services-feature img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
+.services-feature .site-preview {
+  box-shadow: 8px 8px 0 var(--pink);
 }
 
 .services-feature figcaption {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  gap: 2px 13px;
-  padding: 11px clamp(13px, 2vw, 23px) 12px;
-  font-size: 12px;
-  font-weight: 500;
+  gap: 3px 12px;
+  margin-top: 17px;
+  color: var(--body);
+  font-size: 13px;
 }
 
-.services-feature figcaption [lang="en"] {
-  letter-spacing: .08em;
+.services-feature figcaption strong {
+  color: var(--ink);
+  letter-spacing: .04em;
+}
+
+/* 公開サイトを表示するブラウザ風の枠 */
+.site-preview {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #ddd8d3;
+  border-radius: 12px;
+  background: var(--light);
+}
+
+.site-preview-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 30px;
+  padding-inline: 12px;
+  background: #292a30;
+}
+
+.site-preview-bar::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ff706d;
+  box-shadow: 13px 0 0 var(--yellow), 26px 0 0 #f8f6f3;
+}
+
+.site-preview-screen {
+  /* サイトをPC幅で描画してから、枠に収まるサイズに縮小する。 */
+  --preview-scale: .42;
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.site-preview-screen iframe {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: calc(100% / var(--preview-scale));
+  height: calc(100% / var(--preview-scale));
+  border: 0;
+  transform: scale(var(--preview-scale));
+  transform-origin: top left;
+  pointer-events: none;
+}
+
+.site-preview-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.site-preview-state {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.site-preview-link {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 6px;
+  padding: 5px 12px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.site-preview-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.site-preview-link:focus-visible {
+  outline-offset: -3px;
 }
 
 .service-list {
@@ -789,119 +867,120 @@ main p {
   z-index: -1;
 }
 
-/* 制作事例のカルーセル */
-.work-track {
-  display: flex;
-  gap: 22px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  overscroll-behavior-x: contain;
-  scrollbar-width: thin;
-  align-items: stretch;
+/* 制作事例 */
+.works {
+  background-color: #f8f7f5;
+  background-image:
+    linear-gradient(to right, rgb(33 25 20 / .055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(33 25 20 / .055) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
-.carousel[data-enhanced] .work-track {
+.project-track {
+  --project-gap: clamp(16px, 2.5vw, 32px);
+  position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - var(--project-gap)) / 2);
+  gap: var(--project-gap);
+  max-width: 1110px;
+  margin-inline: auto;
+  padding-bottom: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: thin;
+}
+
+.project-track[data-enhanced] {
   scrollbar-width: none;
 }
 
-.carousel[data-enhanced] .work-track::-webkit-scrollbar {
-  display: none;
-}
-
 .project {
-  flex: 0 0 calc((100% - 44px) / 3);
   min-width: 0;
+  padding: clamp(12px, 2vw, 20px);
   scroll-snap-align: start;
   border: 1px solid var(--line);
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.project-cover {
-  aspect-ratio: 393 / 207;
-  display: grid;
-  position: relative;
-  isolation: isolate;
-  color: #fff;
-  background: #241b15;
-}
-
-.project-cover > img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  max-width: none;
-  object-fit: cover;
-  z-index: -2;
-}
-
-.project-cover::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgb(49 38 32 / .84), rgb(49 38 32 / .04));
-  z-index: -1;
-}
-
-.project-cover > div {
-  padding: 13px 15px;
-}
-
-.project-cover span {
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.project-cover p {
-  margin-top: clamp(20px, 3.1vw, 47px);
-  color: white;
-  font-size: clamp(19px, 2vw, 25px);
-  line-height: 1.42;
-  font-weight: 900;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 12px 28px rgb(23 17 14 / .07);
 }
 
 .project-copy {
-  padding: 16px 18px;
-  min-height: 181px;
+  padding: 15px 3px 5px;
 }
 
 .tag {
   display: inline-block;
-  background: var(--pink);
-  color: var(--ink);
-  padding: 4px 9px;
+  padding: 4px 10px;
   border-radius: 20px;
+  background: var(--gray);
+  color: var(--ink);
   font-size: 12px;
   font-weight: 700;
 }
 
 .project h3 {
-  margin: 6px 0;
-  font-size: 24px;
+  margin-block: 8px 5px;
+  font-size: clamp(19px, 2vw, 26px);
+  line-height: 1.35;
+  overflow-wrap: anywhere;
 }
 
 .project p {
-  font-size: 15px;
-}
-
-.project-cover p {
-  font-size: clamp(19px, 2vw, 25px);
-}
-
-.project small {
-  display: block;
-  margin-top: 7px;
-  font-size: 12px;
-  font-weight: 700;
   color: var(--body);
+  font-size: 16px;
+}
+
+.project-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 4px;
+}
+
+.project-controls button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0 0 3px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--ink);
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.project-controls button:hover:not([aria-disabled="true"]) {
+  border-color: var(--red);
+  color: var(--red);
+}
+
+.project-controls button[aria-disabled="true"] {
+  color: #aaa39e;
+  cursor: default;
+}
+
+.project-status {
+  min-width: 7ch;
+  color: var(--body);
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+.works-more {
+  margin-top: 10px;
 }
 
 .project-link {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
-  margin-top: 3px;
   color: var(--red);
   font-size: 14px;
   font-weight: 700;
@@ -913,220 +992,406 @@ main p {
   color: var(--ink);
 }
 
-.carousel-controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  margin-top: 16px;
-}
-
-.carousel-controls button {
-  cursor: pointer;
-  display: grid;
-  place-items: center;
-}
-
-.round {
-  color: var(--ink);
-  width: 45px;
-  height: 45px;
-  background: var(--gray);
-  border-radius: 50%;
+/* 制作料金 */
+.included {
+  padding: clamp(14px, 3vw, 36px);
   border: 1px solid var(--line);
-  font-size: 24px;
-  line-height: 1;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 10px 26px rgb(38 24 17 / .045);
 }
 
-.round:hover {
-  background: #ddd;
-}
-
-.dots {
+.included-intro {
   display: flex;
-  align-items: center;
-  gap: 3px;
-}
-
-.dots button {
-  border: 0;
-  background: transparent;
-  width: 20px;
-  height: 36px;
-  padding: 0;
-}
-
-.dots img {
-  grid-area: 1 / 1;
-}
-
-.dots button[aria-current="true"]::after {
-  content: "";
-  grid-area: 1 / 1;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--red);
-  z-index: 1;
-}
-
-.dots button[data-slide="0"]:not([aria-current="true"]) img {
-  filter: grayscale(1);
-  opacity: .3;
-}
-
-/* 制作料金・保守料金 */
-.price-lead {
-  display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
-  gap: 20px;
-  padding-bottom: 26px;
-  border-bottom: 1px solid var(--line);
-  margin-bottom: 24px;
+  gap: 12px 28px;
+  margin-bottom: 22px;
 }
 
-.price-lead h3 {
-  font-size: 23px;
+.included-intro h3 {
+  font-size: clamp(21px, 2.7vw, 34px);
+  font-weight: 900;
+  line-height: 1.35;
+  letter-spacing: -.025em;
+}
+
+.included-intro h3 + p {
+  margin-top: 5px;
+  font-size: 15px;
+}
+
+.included-price > p:first-child {
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .amount {
   display: flex;
   align-items: baseline;
   gap: 5px;
-}
-
-.amount strong {
-  color: var(--ink);
-  font-size: clamp(54px, 5.42vw, 78px);
-  line-height: 1.2;
-  letter-spacing: -.03em;
-}
-
-.amount span {
-  color: var(--ink);
   font-weight: 700;
-  font-size: 22px;
-}
-
-.included-title {
-  font-size: 25px;
-  margin-bottom: 12px;
-}
-
-.included {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px 15px;
-}
-
-.included article {
-  min-height: 115px;
-  padding: 14px 12px;
-  background: white;
-  border-radius: 5px;
-}
-
-.included article::before {
-  content: "";
-  display: block;
-  background: var(--yellow);
-  width: 23px;
-  height: 4px;
-  margin-bottom: 6px;
-}
-
-.included h4 {
-  font-size: 20px;
-  line-height: 1.4;
-}
-
-.included p {
-  margin-top: 3px;
-  font-size: 16px;
-}
-
-.maintenance {
-  display: grid;
-  grid-template-columns: minmax(230px, 1fr) 2fr;
-  align-items: center;
-  gap: 28px;
-  padding: 17px 18px;
-  background: white;
-  margin-top: 26px;
-}
-
-.maintenance .amount strong {
-  font-size: 38px;
-}
-
-.maintenance .amount span {
-  font-size: 19px;
-}
-
-/* 他社との比較 */
-#comparison-heading span {
+  font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
 
-.compare {
-  border-collapse: collapse;
-  width: 100%;
-  table-layout: fixed;
-  text-align: left;
+.amount strong {
+  line-height: 1.05;
+  letter-spacing: -.035em;
+}
+
+.included-price .amount {
+  color: var(--ink);
+  font-size: clamp(19px, 2vw, 24px);
+}
+
+.included-price .amount strong {
+  font-size: clamp(43px, 5.2vw, 68px);
+  font-weight: 900;
+}
+
+.included-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  padding: 0;
+  list-style: none;
+}
+
+.included-grid li {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--light);
+}
+
+.included-grid summary {
+  display: grid;
+  grid-template:
+    "icon label toggle" auto
+    "icon caption toggle" auto
+    / 40px minmax(0, 1fr) 16px;
+  align-content: center;
+  align-items: center;
+  gap: 4px 10px;
+  min-height: 88px;
+  padding: 12px;
+  border-radius: 9px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.included-grid summary:hover,
+.included-grid details[open] summary {
+  background: var(--rose);
+}
+
+.included-grid summary:focus-visible {
+  outline-offset: -3px;
+}
+
+.included-grid summary::-webkit-details-marker {
+  display: none;
+}
+
+.included-grid summary::after {
+  grid-area: toggle;
+  width: 16px;
+  height: 16px;
+  background: url("./assets/plus.svg") center / contain no-repeat;
+  content: "";
+}
+
+.included-grid details[open] summary::after {
+  background-image: url("./assets/minus.svg");
+}
+
+.included-grid img {
+  grid-area: icon;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  border-radius: 11px;
+  background: var(--pink);
+}
+
+.included-label {
+  grid-area: label;
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 1.4;
+}
+
+.included-caption {
+  grid-area: caption;
+  color: var(--body);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.included-label,
+.included-caption {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.included-grid details p {
+  padding: 12px;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.included-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  margin-top: 16px;
+}
+
+.included-footer p {
   font-size: 14px;
 }
 
-.compare .item-col {
+.included-footer .button {
+  min-height: 44px;
+  padding-block: 9px;
+}
+
+.pricing-notes {
+  margin-top: 16px;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.pricing-notes p + p {
+  margin-top: 3px;
+}
+
+/* 他社との比較・料金を抑えられる理由 */
+.comparison {
+  background: var(--light);
+}
+
+#comparison-heading span,
+#compare-reasons-heading span,
+.compare-closing-title span {
+  white-space: nowrap;
+}
+
+.compare-lead {
+  margin-top: 4px;
+  text-wrap: pretty;
+}
+
+.compare-lead-price {
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.compare-panel {
+  container-type: inline-size;
+  max-width: 1150px;
+  margin-inline: auto;
+}
+
+.compare-scroll-hint {
+  display: none;
+}
+
+@container (max-width: 681px) {
+  .compare-scroll-hint {
+    display: flex;
+    justify-content: flex-end;
+    gap: 6px;
+    margin-bottom: 7px;
+    font-size: 12px;
+  }
+}
+
+.compare-viewport {
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 12px 28px rgb(38 24 17 / .05);
+}
+
+.compare {
+  width: 100%;
+  border-spacing: 0;
+  table-layout: fixed;
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.compare-item-col {
   width: 15%;
+}
+
+.compare-featured-col {
+  width: 23%;
 }
 
 .compare th,
 .compare td {
-  padding: 17px 14px;
+  padding: 16px clamp(12px, 1.6vw, 22px);
   border-bottom: 1px solid var(--line);
 }
 
 .compare thead th {
-  height: 65px;
+  height: 61px;
   background: var(--gray);
-}
-
-.compare th[scope="row"] {
-  background: var(--gray);
-}
-
-.compare thead th:last-child {
-  background: var(--black);
-  color: white;
-}
-
-.compare td:last-child {
-  background: var(--mint);
   font-weight: 700;
 }
 
-.compare td > span {
-  display: none;
+.compare th[scope="row"] {
+  background: #f5f2ef;
+  font-weight: 700;
 }
 
-.compare-summary {
-  margin-top: 28px;
-  padding: clamp(18px, 3vw, 32px);
-  border-radius: 10px;
-  background: var(--light);
-  text-align: center;
+.compare thead .compare-featured {
+  background: var(--red);
+  color: #fff;
+  font-size: 16px;
 }
 
-.compare-summary h3 {
-  font-size: clamp(20px, 2.2vw, 29px);
+.compare td.compare-featured {
+  background: #fbebee;
+  color: #631127;
+}
+
+.compare tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+.compare .compare-prices td {
+  color: var(--ink);
+  font-size: clamp(15px, 1.6vw, 22px);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.compare-prices .compare-featured strong {
+  font-size: clamp(19px, 2.4vw, 32px);
+  line-height: 1.15;
+}
+
+.compare-note {
+  margin-top: 16px;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.compare-reasons {
+  display: grid;
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.45fr);
+  gap: clamp(28px, 6vw, 80px);
+  max-width: 1150px;
+  margin: clamp(46px, 7vw, 90px) auto 0;
+  padding-top: clamp(26px, 4vw, 48px);
+  border-top: 1px solid var(--line);
+}
+
+.compare-reasons-intro h3 {
+  font-size: clamp(28px, 3.5vw, 45px);
+  font-weight: 900;
+  line-height: 1.26;
+  letter-spacing: -.025em;
   text-wrap: balance;
 }
 
-.compare-summary p {
-  max-width: 46em;
-  margin: 8px auto 0;
-  text-wrap: pretty;
+.compare-reasons-intro p {
+  margin-top: 12px;
+  line-height: 1.8;
+}
+
+.compare-reasons-lead strong {
+  color: var(--red);
+}
+
+.compare-reasons-list {
+  display: grid;
+  gap: 19px;
+  padding: 0;
+  list-style: none;
+}
+
+.compare-reasons-list li {
+  display: grid;
+  grid-template-columns: 2.1em minmax(0, 1fr);
+  gap: 12px;
+}
+
+.compare-reasons-list li + li {
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.compare-reason-number {
+  color: var(--red);
+  font-size: clamp(19px, 2vw, 26px);
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.35;
+}
+
+.compare-reasons-list h4 {
+  font-size: clamp(17px, 1.8vw, 23px);
+  line-height: 1.5;
+}
+
+.compare-reasons-list p {
+  margin-top: 6px;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.compare-closing {
+  max-width: 1150px;
+  margin: clamp(28px, 5vw, 56px) auto 0;
+  padding: clamp(26px, 4vw, 48px) clamp(14px, 3vw, 32px);
+  border-block: 1px solid var(--line);
+  background: #fff;
+  text-align: center;
+}
+
+.compare-closing::before {
+  display: block;
+  width: 26px;
+  height: 2px;
+  margin: 0 auto 13px;
+  background: var(--red);
+  content: "";
+}
+
+.compare-closing-title {
+  margin-bottom: 12px;
+  font-size: clamp(23px, 3vw, 38px);
+  font-weight: 900;
+  line-height: 1.4;
+  letter-spacing: -.025em;
+  text-wrap: balance;
+}
+
+.compare-closing p {
+  max-width: 51em;
+  margin-inline: auto;
+  line-height: 1.75;
+  text-wrap: balance;
+}
+
+.compare-closing p + p {
+  margin-top: 5px;
+}
+
+.compare-closing strong {
+  color: var(--ink);
+  white-space: nowrap;
 }
 
 /* 制作の流れ */
@@ -1699,8 +1964,8 @@ main p {
     margin-inline: auto;
   }
 
-  .services-feature {
-    box-shadow: 6px 6px 0 var(--pink);
+  .services-feature .site-preview {
+    box-shadow: 5px 5px 0 var(--pink);
   }
 
   /* 見出し・制作事例 */
@@ -1708,129 +1973,58 @@ main p {
     margin-bottom: 20px;
   }
 
-  .work-track {
-    gap: 0;
+  .project-track {
+    grid-auto-columns: 100%;
+    max-width: 580px;
   }
 
-  .project {
-    flex-basis: 100%;
+  .site-preview-screen {
+    --preview-scale: .36;
   }
 
-  .project.is-clone {
-    display: none;
-  }
-
-  .project h3 {
-    font-size: 21px;
-  }
-
-  .project-copy {
-    min-height: 160px;
-  }
-
-  .project-cover {
-    aspect-ratio: 342 / 188;
-  }
-
-  .project-cover p {
-    margin-top: 32px;
-    font-size: 23px;
-  }
-
-  /* 制作料金・保守料金 */
-  .price-lead {
-    display: grid;
-    justify-items: start;
-    gap: 12px;
-  }
-
-  .price-lead h3 {
-    font-size: 18px;
-  }
-
-  .included-title {
-    font-size: 21px;
-  }
-
-  .included {
+  /* 制作料金 */
+  .included-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
   }
 
-  .included article {
-    min-height: 132px;
-    padding: 12px;
-  }
-
-  .included h4 {
-    font-size: 16px;
-  }
-
-  .included p {
-    font-size: 14px;
-  }
-
-  .maintenance {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 5px;
-    margin-top: 19px;
-    padding: 14px 18px;
-  }
-
-  .maintenance .amount strong {
-    font-size: 30px;
+  .included-grid li:last-child {
+    grid-column: 1 / -1;
   }
 
   /* 他社との比較 */
-  .compare,
-  .compare tbody,
-  .compare td,
-  .compare th[scope="row"] {
-    display: block;
+  .compare {
+    min-width: 680px;
   }
 
-  .compare colgroup {
-    display: none;
+  .compare-item-col {
+    width: 90px;
   }
 
-  .compare thead {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    clip-path: inset(50%);
-    overflow: hidden;
-    white-space: nowrap;
+  .compare-featured-col {
+    width: 145px;
   }
 
-  .compare tbody tr {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 4px;
-    margin-bottom: 19px;
+  /* 横にスライドしても、比較項目は左に表示する。 */
+  .compare th:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    box-shadow: 1px 0 var(--line);
   }
 
-  .compare td,
-  .compare th[scope="row"] {
-    border-bottom: 0;
-    padding: 7px 11px;
-  }
-
-  .compare th[scope="row"] {
-    grid-column: 1 / -1;
-    background: white;
-    padding: 0 0 2px;
-    font-size: 16px;
-  }
-
+  .compare th,
   .compare td {
-    background: var(--gray);
-    overflow-wrap: anywhere;
+    padding: 12px 10px;
+    font-size: 13px;
   }
 
-  .compare td > span {
-    display: block;
-    font-size: 12px;
-    font-weight: 700;
+  .compare .compare-prices td {
+    font-size: 15px;
+  }
+
+  .compare-reasons {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
   }
 
   /* 代表プロフィール */
@@ -1889,6 +2083,46 @@ main p {
   .footer-row {
     margin-top: 27px;
     padding-top: 21px;
+  }
+}
+
+/* スマホではカード内のアイコンを見出しの上に置く */
+@media (max-width: 640px) {
+  .included-intro {
+    display: grid;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .included-grid summary {
+    grid-template:
+      "icon toggle" auto
+      "label label" auto
+      "caption caption" auto
+      / minmax(0, 1fr) auto;
+    align-content: start;
+    gap: 5px;
+    min-height: 116px;
+    padding: 10px;
+  }
+
+  .included-grid img {
+    width: 34px;
+    height: 34px;
+    padding: 6px;
+  }
+
+  .included-label {
+    font-size: 15px;
+  }
+
+  .included-grid li:last-child summary {
+    grid-template:
+      "icon label toggle" auto
+      "icon caption toggle" auto
+      / 34px minmax(0, 1fr) 16px;
+    gap: 3px 10px;
+    min-height: 62px;
   }
 }
 

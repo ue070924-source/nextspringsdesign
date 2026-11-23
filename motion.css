@@ -150,14 +150,6 @@
     .button:hover img {
       transform: translateX(3px);
     }
-
-    .project-cover > img {
-      transition: transform 560ms var(--motion-ease);
-    }
-
-    .project:hover .project-cover > img {
-      transform: scale(1.055);
-    }
   }
 
   @media (max-width: 640px) {
