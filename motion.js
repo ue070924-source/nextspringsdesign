@@ -1,9 +1,13 @@
-// スクロールで初めて画面に入った要素を表示する。
-// data-reveal で動きの種類、data-delay で登場順（1段階 = 75ms）を指定する。
-if ("IntersectionObserver" in window) {
+const allowMotion = window.matchMedia("(prefers-reduced-motion: no-preference)");
+
+// 画面に入った要素を一度だけ表示する。data-delay は1段階35ms、最大105ms。
+if (allowMotion.matches && "IntersectionObserver" in window) {
   const revealTargets = [...document.querySelectorAll("[data-reveal]")];
   const pendingTargets = revealTargets.filter((element) => {
-    return element.getBoundingClientRect().top >= window.innerHeight;
+    const bounds = element.getBoundingClientRect();
+
+    return bounds.top >= window.innerHeight
+      || (bounds.bottom > 0 && (bounds.left >= window.innerWidth || bounds.right <= 0));
   });
 
   function reveal(element) {
@@ -17,13 +21,13 @@ if ("IntersectionObserver" in window) {
         reveal(entry.target);
       }
     }
-  });
+  }, { rootMargin: "0px 0px 24px 0px" });
 
   for (const element of pendingTargets) {
     const order = Number(element.dataset.delay) || 0;
 
     if (order > 0) {
-      element.style.setProperty("--reveal-delay", `${order * 75}ms`);
+      element.style.setProperty("--reveal-delay", `${Math.min(order, 3) * 35}ms`);
     }
 
     element.classList.add("is-reveal-pending");
@@ -42,7 +46,6 @@ if ("IntersectionObserver" in window) {
 
 // トップの写真は、最初の画面をスクロールする間だけ枠の内側で動かす。
 const motionGallery = document.querySelector(".hero-gallery");
-const allowMotion = window.matchMedia("(prefers-reduced-motion: no-preference)");
 
 if (motionGallery) {
   let galleryFrame = null;
@@ -51,7 +54,7 @@ if (motionGallery) {
   function updateGallery() {
     galleryFrame = null;
     const progress = Math.min(1, Math.max(0, window.scrollY / window.innerHeight));
-    const pan = `${(progress * 3).toFixed(2)}%`;
+    const pan = `${(progress * 1.5).toFixed(2)}%`;
 
     if (pan !== previousPan) {
       motionGallery.style.setProperty("--gallery-pan", pan);

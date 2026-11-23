@@ -94,3 +94,25 @@ if (projectTrack && projectControls) {
   projectTrack.dataset.enhanced = "";
   updateControls();
 }
+
+// スマホでは、画面内に相談ボタンがある間とフッター付近で追従バーを隠す。
+const mobileConsultation = document.querySelector(".mobile-consultation");
+
+if (mobileConsultation && "IntersectionObserver" in window) {
+  const visibleTargets = new Set();
+  const consultationObserver = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        visibleTargets.add(entry.target);
+      } else {
+        visibleTargets.delete(entry.target);
+      }
+    }
+
+    mobileConsultation.hidden = visibleTargets.size > 0;
+  }, { rootMargin: "0px 0px 68px 0px" });
+
+  for (const target of document.querySelectorAll("[data-consultation-target]")) {
+    consultationObserver.observe(target);
+  }
+}
