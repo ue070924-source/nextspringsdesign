@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="./styles.css?v=16">
     <link rel="stylesheet" href="./contact.css?v=2">
     <link rel="stylesheet" href="./motion.css?v=3">
-    <script src="./contact.js" defer></script>
     <link rel="canonical" href="https://ue070924-source.github.io/nextspringsdesign/contact.html">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ja_JP">
@@ -99,33 +98,35 @@
           <p class="inquiry-free">ご相談・ご提案は無料です。</p>
         </div>
 
-        <form id="inquiry-form" class="inquiry-form" method="post" aria-label="制作のご相談フォーム">
+        <form id="inquiry-form" class="inquiry-form" action="https://formsubmit.co/ue070924@gmail.com" method="post" aria-label="制作のご相談フォーム">
+          <input type="hidden" name="_subject" value="【NextSprings】Web制作のご相談">
+          <input type="hidden" name="_template" value="table">
           <!-- お問い合わせの種類 -->
           <fieldset class="inquiry-group">
             <legend>つくりたいもの <span class="inquiry-badge required">必須</span></legend>
             <div class="inquiry-options">
               <label class="inquiry-option">
-                <input type="radio" name="project" value="名刺代わりのサイト" required>
+                <input type="radio" name="つくりたいもの" value="名刺代わりのサイト" required>
                 <span>名刺代わりのサイト<small>まずは1ページから</small></span>
               </label>
               <label class="inquiry-option">
-                <input type="radio" name="project" value="会社・お店のサイト">
+                <input type="radio" name="つくりたいもの" value="会社・お店のサイト">
                 <span>会社・お店のサイト<small>事業や店舗の情報をまとめたい</small></span>
               </label>
               <label class="inquiry-option">
-                <input type="radio" name="project" value="LP（ランディングページ）">
+                <input type="radio" name="つくりたいもの" value="LP（ランディングページ）">
                 <span>LP（ランディングページ）<small>商品やサービスの紹介ページ</small></span>
               </label>
               <label class="inquiry-option">
-                <input type="radio" name="project" value="既存サイトのリニューアル">
+                <input type="radio" name="つくりたいもの" value="既存サイトのリニューアル">
                 <span>既存サイトのリニューアル<small>内容や見た目を見直したい</small></span>
               </label>
               <label class="inquiry-option">
-                <input type="radio" name="project" value="公開後の更新・保守">
+                <input type="radio" name="つくりたいもの" value="公開後の更新・保守">
                 <span>公開後の更新・保守</span>
               </label>
               <label class="inquiry-option">
-                <input type="radio" name="project" value="まだ決まっていない">
+                <input type="radio" name="つくりたいもの" value="まだ決まっていない">
                 <span>まだ決まっていない</span>
               </label>
             </div>
@@ -136,7 +137,7 @@
             <label for="inquiry-name">お名前 <span class="inquiry-badge required">必須</span></label>
             <input
               id="inquiry-name"
-              name="customerName"
+              name="お名前"
               type="text"
               autocomplete="name"
               maxlength="100"
@@ -149,7 +150,7 @@
             <label for="inquiry-company">会社名・屋号 <span class="inquiry-badge">任意</span></label>
             <input
               id="inquiry-company"
-              name="company"
+              name="会社名・屋号"
               type="text"
               autocomplete="organization"
               maxlength="120"
@@ -175,7 +176,7 @@
             <p id="inquiry-site-help" class="inquiry-help">すでにサイトをお持ちの場合はご記入ください。</p>
             <input
               id="inquiry-site"
-              name="currentSite"
+              name="現在のサイトURL"
               type="url"
               autocomplete="url"
               maxlength="500"
@@ -186,7 +187,7 @@
 
           <div class="inquiry-field">
             <label for="inquiry-budget">ご予算の目安 <span class="inquiry-badge">任意</span></label>
-            <select id="inquiry-budget" name="budget">
+            <select id="inquiry-budget" name="ご予算の目安">
               <option value="">選択してください</option>
               <option>3万円〜5万円未満</option>
               <option>5万円〜10万円未満</option>
@@ -201,19 +202,19 @@
             <p id="inquiry-topics-help" class="inquiry-help">複数選べます。</p>
             <div class="inquiry-options">
               <label class="inquiry-option">
-                <input type="checkbox" name="topics" value="掲載内容・文章の整理">
+                <input type="checkbox" name="追加相談（掲載内容・文章の整理）" value="希望する">
                 <span>掲載内容・文章の整理</span>
               </label>
               <label class="inquiry-option">
-                <input type="checkbox" name="topics" value="写真や素材の準備">
+                <input type="checkbox" name="追加相談（写真や素材の準備）" value="希望する">
                 <span>写真や素材の準備</span>
               </label>
               <label class="inquiry-option">
-                <input type="checkbox" name="topics" value="検索向けの基本設定">
+                <input type="checkbox" name="追加相談（検索向けの基本設定）" value="希望する">
                 <span>検索向けの基本設定</span>
               </label>
               <label class="inquiry-option">
-                <input type="checkbox" name="topics" value="公開後の更新・保守">
+                <input type="checkbox" name="追加相談（公開後の更新・保守）" value="希望する">
                 <span>公開後の更新・保守</span>
               </label>
             </div>
@@ -223,7 +224,7 @@
             <label for="inquiry-message">ご相談内容 <span class="inquiry-badge required">必須</span></label>
             <textarea
               id="inquiry-message"
-              name="message"
+              name="ご相談内容"
               rows="6"
               maxlength="1500"
               placeholder="例：サイトを作り直したいのですが、何から始めればいいか相談したいです。"
@@ -232,29 +233,30 @@
           </div>
 
           <div class="inquiry-submit">
-            <button class="button primary inquiry-primary" type="submit" disabled>相談内容を確認する</button>
-            <p>内容の確認後、メールアプリから送信できます。</p>
-            <!-- 受信用メールアドレスを変更するときは、このリンクの href を編集する。 -->
+            <button class="button primary inquiry-primary" type="submit">相談内容を送信する</button>
+            <p>入力内容はFormSubmitを通じてNextSpringsに届きます。</p>
+            <!-- 受信用メールアドレスを変更するときは、フォームの action と下記リンクの href を編集する。 -->
             <p><a id="inquiry-email" href="mailto:ue070924@gmail.com">メールで直接相談する</a></p>
           </div>
         </form>
       </div>
     </main>
 
-    <dialog class="inquiry-review" id="inquiry-review" aria-labelledby="inquiry-review-heading">
-      <h2 id="inquiry-review-heading" tabindex="-1">ご相談内容の確認</h2>
-      <p id="inquiry-review-help">内容を確認して、メールアプリで送信してください。</p>
-      <label class="sr-only" for="inquiry-review-message">メール本文</label>
-      <textarea id="inquiry-review-message" rows="9" readonly></textarea>
-      <div class="inquiry-review-actions">
-        <a id="inquiry-send" class="button primary inquiry-primary">メールアプリを開く</a>
-        <button class="button secondary" type="button" id="inquiry-copy">本文をコピー</button>
-        <form method="dialog">
-          <button class="button secondary" type="submit">編集に戻る</button>
-        </form>
-      </div>
-      <p class="inquiry-review-status" id="inquiry-review-status" role="status"></p>
-    </dialog>
+    <script>
+      const form = document.getElementById("inquiry-form");
+      const requiredText = [form.elements["お名前"], form.elements["ご相談内容"]];
+      for (const field of requiredText) {
+        field.addEventListener("input", () => field.setCustomValidity(""));
+      }
+      form.addEventListener("submit", (event) => {
+        for (const field of requiredText) {
+          field.setCustomValidity(field.value.trim() ? "" : "空白以外の文字を入力してください。");
+        }
+        if (!form.reportValidity()) {
+          event.preventDefault();
+        }
+      });
+    </script>
 
     <footer class="inquiry-footer">
       <div class="wrap">
